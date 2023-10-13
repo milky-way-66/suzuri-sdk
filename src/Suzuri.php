@@ -46,12 +46,35 @@ class Suzuri
 		return json_decode($response->getBody()->getContents());
 	}
 
-	public function materials(){
+	public function materials()
+	{
 
 		$response = $this->client()->get(
 			self::BASE_URI . "/api/v1/materials",
 			[
 				RequestOptions::HEADERS => $this->headers()
+			]
+		);
+
+		return json_decode($response->getBody()->getContents());
+	}
+
+	public function createProduct(string $texture, string $title, array $optional = [])
+	{
+		$data = [
+			"texture" => $texture,
+			"title" => $title,
+		];
+
+		foreach($optional as $key => $params){
+			$data[$key] = $params;
+		}
+
+		$response = $this->client()->post(
+			self::BASE_URI . "api/v1/materials",
+			[
+				RequestOptions::HEADERS => $this->headers(),
+				RequestOptions::BODY => $data
 			]
 		);
 
