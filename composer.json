@@ -1,15 +1,24 @@
 {
     "name": "milky-way/suzuri-sdk",
     "description": "sdk for suzuri api",
+    "keywords": ["Suzuri sdk", "suzuri"],
     "require": {
+        "php": "^7.2.5|^8.0",
         "guzzlehttp/guzzle": "7.8"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "MilkyWay\\SuzuriSdk\\": "src"
+            "MilkyWay\\SuzuriSdk\\": "src/"
         }
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.x-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "milky-way-66"
